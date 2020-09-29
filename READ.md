@@ -1,14 +1,12 @@
-1. 
+1. Meal finder | Fetch & Meal API
 
 2. To-do List
 
 3. Sliders
 
-4. 
+4.
 
-100. 
-
-
+5.
 
 Project based learning resource links (21 + 9 + 10 + 30 + 20 )
 https://www.vanillajavascriptprojects.com/
