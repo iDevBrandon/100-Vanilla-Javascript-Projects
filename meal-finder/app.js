@@ -12,16 +12,14 @@ function searchMeal(e) {
 
   const term = inputBox.value;
   searchTerm.innerHTML = term;
+
+  fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${term}`)
+    .then((res) => res.json())
+    .then(function (data) {
+      let imgEl = document.createElement("img");
+      let img = data.meals[0].strMealThumb;
+      imgEl.src = img;
+      imgEl.className = "result__img";
+      result.appendChild(imgEl);
+    });
 }
-
-fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=pasta`)
-  .then((res) => res.json())
-  .then(function (data) {
-    let imgEl = document.createElement("img");
-    let img = data.meals[0].strMealThumb;
-    imgEl.src = img;
-    imgEl.className = "result__img";
-    console.log(imgEl);
-
-    result.appendChild(imgEl);
-  });
