@@ -5,8 +5,11 @@ const term = document.getElementById("term");
 const result = document.querySelector(".result");
 const meals = document.querySelector(".meals");
 
+const randomBtn = document.getElementById("random");
+
 // Event listener
 formBox.addEventListener("submit", listMeal);
+randomBtn.addEventListener("click", randomMeal);
 
 // functions
 function listMeal(e) {
@@ -27,12 +30,12 @@ function listMeal(e) {
           result.innerHTML = data.meals
             .map(
               (meal) => ` 
-          <div class='single'>
-          <div class="single--meal" id=${meal.idMeal}>
-            <img src="${meal.strMealThumb}"></img>
-            <h2 class='single--heading'>${meal.strMeal}</h2>
-          </div>
-          </div>
+              <div class="meal">    
+                <img src="${meal.strMealThumb}"></img>
+                <div class="meal--info"  data-mealID=${meal.idMeal}>
+                  <h2 class='single--heading'>${meal.strMeal}</h2>
+                </div> 
+              </div>
           `
             )
             .join("");
@@ -41,4 +44,25 @@ function listMeal(e) {
   } else {
     alert("Type your fav food");
   }
+}
+
+function randomMeal() {
+  const url = "https://www.themealdb.com/api/json/v1/1/random.php";
+  fetch(url)
+    .then((res) => res.json())
+    .then((data) => {
+      console.log(data.meals);
+      result.innerHTML = data.meals
+        .map(
+          (meal) => ` 
+          <div class='single'>
+            <div class="single--meal" id=${meal.idMeal}>
+              <img src="${meal.strMealThumb}"></img>
+              <h2 class='single--heading'>${meal.strMeal}</h2>
+            </div>
+          </div>
+          `
+        )
+        .join("");
+    });
 }
