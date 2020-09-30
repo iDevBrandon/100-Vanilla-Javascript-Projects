@@ -69,22 +69,41 @@ p {
   font-weight: 400;
 }
 
-
-
-.meals {
+.result {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-gap: 2rem;
   padding: 3rem;
+  position: relative;
 
   @media screen and (min-width: 30em) {
     grid-template-columns: repeat(4, 1fr);
     margin: 0 5rem;
   }
 
-  .single--meal {
-    img {
-      width: 100%;
+  .single {
+    position: relative;
+    &--meal {
+      img {
+        width: 100%;
+      }
+      h2 {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        background: rgba(0, 0, 0, 0.7);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: opacity 0.2s ease-in;
+        opacity: 0;
+
+        &:hover {
+          opacity: 1;
+        }
+      }
     }
   }
 }

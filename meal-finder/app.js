@@ -24,12 +24,14 @@ function listMeal(e) {
         if (data.meals === null) {
           result.innerText = `There's no meal data in DB`;
         } else {
-          meals.innerHTML = data.meals
+          result.innerHTML = data.meals
             .map(
               (meal) => ` 
+          <div class='single'>
           <div class="single--meal" id=${meal.idMeal}>
-          <img src="${meal.strMealThumb}"></img>
-            <h2>${meal.strMeal}</h2>
+            <img src="${meal.strMealThumb}"></img>
+            <h2 class='single--heading'>${meal.strMeal}</h2>
+          </div>
           </div>
           `
             )
