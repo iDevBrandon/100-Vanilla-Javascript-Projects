@@ -6,14 +6,19 @@ const balance = document.querySelector(".balance");
 const money_plus = document.getElementById("money-plus");
 const money_minus = document.getElementById("money-minus");
 
-const dummyTransactions = [
-  { id: 1, text: "Flower", amount: -20 },
-  { id: 2, text: "Salary", amount: 300 },
-  { id: 3, text: "Book", amount: -10 },
-  { id: 4, text: "Camera", amount: 150 },
-];
+// const dummyTransactions = [
+//   { id: 1, text: "Flower", amount: -20 },
+//   { id: 2, text: "Salary", amount: 300 },
+//   { id: 3, text: "Book", amount: -10 },
+//   { id: 4, text: "Camera", amount: 150 },
+// ];
 
-let transactions = dummyTransactions;
+const localStorageTransactions = JSON.parse(
+  localStorage.getItem("transactions")
+);
+
+let transactions =
+  localStorage.getItem("transactions") !== null ? localStorageTransactions : [];
 
 function addTransaction(e) {
   e.preventDefault();
@@ -32,6 +37,8 @@ function addTransaction(e) {
     addTransactionDOM(transaction);
 
     displayBalance();
+
+    updateLocalStorage();
 
     text.value = "";
     amount.value = "";
@@ -54,8 +61,8 @@ function addTransactionDOM(transaction) {
   li.innerHTML = `
     ${transaction.text} <span>${sign}$${Math.abs(
     transaction.amount
-  )}</span><button class="delete-btn 
-  onclick="removeTransaction${transaction.id}">X</button>
+  )}</span><button class="delete-btn"
+  onclick="removeTransaction(${transaction.id})">X</button>
   `;
   list.appendChild(li);
 }
@@ -80,7 +87,13 @@ function displayBalance() {
 
 function removeTransaction(id) {
   transactions = transactions.filter((transaction) => transaction.id !== id);
+  updateLocalStorage();
   init();
+}
+
+// update localStorage
+function updateLocalStorage() {
+  localStorage.setItem("transactions", JSON.stringify(transactions));
 }
 
 function init() {
