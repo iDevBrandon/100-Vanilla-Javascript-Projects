@@ -20,7 +20,6 @@ const cardsEl = [];
 const cardsData = [
   { question: "What do you like?", answer: "pizza and chicken" },
   { question: "What is JavaScript?", answer: "My fav lang" },
-  { question: " what do you wannna be?", answer: "A MSFT board member" },
 ];
 
 // create a card
@@ -65,3 +64,32 @@ function updateCurrentText() {
 }
 
 createCards();
+
+// event listener
+nextBtn.addEventListener("click", () => {
+  cardsEl[currentActiveCard].className = "card left";
+
+  currentActiveCard = currentActiveCard + 1;
+
+  if (currentActiveCard > cardsEl.length - 1) {
+    currentActiveCard = cardsEl.length - 1;
+  }
+
+  cardsEl[currentActiveCard].className = "card active";
+
+  updateCurrentText();
+});
+
+prevBtn.addEventListener("click", () => {
+  cardsEl[currentActiveCard].className = "card right";
+
+  currentActiveCard = currentActiveCard - 1;
+
+  if (currentActiveCard < 0) {
+    currentActiveCard = 0;
+  }
+
+  cardsEl[currentActiveCard].className = "card active";
+
+  updateCurrentText();
+});
