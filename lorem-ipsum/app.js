@@ -4,7 +4,9 @@ const amount = document.querySelector(".amount");
 
 // get the num from control part
 const genParagraph = function (data) {
-  const html = `<p class='paragraph'>${data}</p>`;
+  const html = `
+  <p class='paragraph'>${data.replace("\n", "<br />")}</p>
+  `;
   container.insertAdjacentHTML("beforeend", html);
 };
 
