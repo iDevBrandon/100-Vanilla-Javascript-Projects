@@ -10,7 +10,7 @@ i'd try to create it with my own code without purchasing this course
 
 3. Sliders
 
-4.
+4. Expending card
 
 5.
 
