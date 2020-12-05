@@ -4,13 +4,13 @@ i needed 100 ideas but brad made amazing course..
 https://50projects50days.com/
 i'd try to create it with my own code without purchasing this course
 
-1. Meal finder | Fetch & Meal API
+1. Expending card - Brad 50projects50days
 
-2. To-do List
+2. clock app by Frontend Mentor
 
-3. Sliders
+3. 
 
-4. Expending card
+4.
 
 5.
 
