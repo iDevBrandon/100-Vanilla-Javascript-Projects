@@ -21,5 +21,44 @@ html {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  height: 100vh;
+}
+
+.container__basic {
+  background-image: url("https://source.unsplash.com/random");
+  height: 60%;
+  color: white;
+}
+
+.container__basic .container--greeting {
+  opacity: 0;
+}
+
+.container__basic .container--info--time {
+  font-size: 5rem;
+}
+
+.container__more {
+  height: 40%;
+  background-color: #e0e6e8;
+}
+
+.container__more--list li {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.container__more--list li span {
+  font-weight: bold;
+}
+
+.btn {
+  font-size: 1.5rem;
+  background-color: white;
+  border-radius: 50px;
 }
 /*# sourceMappingURL=style.css.map */

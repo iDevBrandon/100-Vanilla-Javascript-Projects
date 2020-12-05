@@ -13,4 +13,43 @@ html {
 .container {
   display: flex;
   flex-direction: column;
+  height: 100vh;
+
+  &__basic {
+    background-image: url("https://source.unsplash.com/random");
+    height: 60%;
+    color: white;
+
+    .container--greeting {
+      opacity: 0;
+    }
+
+    .container--info {
+      &--time {
+        font-size: 5rem;
+      }
+    }
+  }
+
+  &__more {
+    height: 40%;
+    background-color: #e0e6e8;
+
+    &--list {
+      li {
+        display: flex;
+        justify-content: space-between;
+
+        span {
+          font-weight: bold;
+        }
+      }
+    }
+  }
+}
+
+.btn {
+  font-size: 1.5rem;
+  background-color: white;
+  border-radius: 50px;
 }
