@@ -52,7 +52,7 @@ body {
 
 .progress {
   position: absolute;
-  width: 0%;
+  
 }
 
 .circle {
@@ -83,4 +83,9 @@ body {
   padding: 8px 30px;
   margin: 5px;
   font-size: 14px;
+}
+
+.disabled {
+  background-color: #e0e0e0;
+  cursor: not-allowed;
 }

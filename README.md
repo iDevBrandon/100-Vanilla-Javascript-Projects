@@ -8,7 +8,7 @@ i'd try to create it with my own code without purchasing this course
 
 2. clock app by Frontend Mentor
 
-3. 
+3. progress-steps by Brad 50projects50days
 
 4.
 

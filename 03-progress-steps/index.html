@@ -9,15 +9,15 @@
   <body>
     <div class="container">
       <div class="container-progress">
-        <div class="progress"></div>
+        <div class="progress" style="width: 0%"></div>
         <div class="circle active">1</div>
         <div class="circle">2</div>
         <div class="circle">3</div>
         <div class="circle">4</div>
       </div>
       <div class="btnControl">
-        <button class="prev btn">Prev</button>
-        <button class="next btn">Next</button>
+        <button onClick="movePrev()" class="prev btn">Prev</button>
+        <button onClick="moveNext()" class="next btn">Next</button>
       </div>
     </div>
     <script src="app.js"></script>
