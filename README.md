@@ -10,7 +10,8 @@ i'd try to create it with my own code without purchasing this course
 
 3. progress-steps by Brad 50projects50days
 
-4.
+4. Vanilla JavaScript Search App | Wikipedia API
+https://www.youtube.com/watch?v=Dk6Wopar10k
 
 5.
 
