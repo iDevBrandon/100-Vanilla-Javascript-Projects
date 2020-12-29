@@ -3,6 +3,17 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+      integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA=="
+      crossorigin="anonymous"
+    />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"
+      rel="stylesheet"
+    />
     <title>Wiki Search</title>
   </head>
   <body>
@@ -21,7 +32,7 @@
             tabindex="0"
             aria-label="Clear search terms"
           >
-            X
+            <i class="fas fa-times"></i>
           </div>
           <button
             id="searchButton"
@@ -29,7 +40,7 @@
             class="button searchButton"
             aria-label="Submit button"
           >
-            Search
+            <i class="fas fa-search"></i>
           </button>
         </form>
       </section>
@@ -39,15 +50,17 @@
           <div id="stats" class="stats" aria-live="assertive"></div>
         </div>
         <div class="searchResults">
-
-            <div class="resultItem">
-                <div class="resultTitle">
-                  <a href="">Dachsund</a>
-                </div>
-                <div class="resultContents">
-                  <div class="resultImage"><img src="" alt=""></div>
-                </div>
+          <div class="resultItem">
+            <div class="resultTitle">
+              <a href="">Dachsund</a>
             </div>
+            <div class="resultContents">
+              <div class="resultImage"><img src="" alt="" /></div>
+              <div class="resultText">
+                <p class="resultDescription"></p>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
     </main>
