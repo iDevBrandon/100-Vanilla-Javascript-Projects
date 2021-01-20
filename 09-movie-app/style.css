@@ -28,8 +28,12 @@ header {
           justify-content: center;
 }
 
-.nav .search-bar {
-  width: 23rem;
+.nav {
+  width: 50%;
+}
+
+.nav .searchInput {
+  width: 100%;
   height: 2rem;
   border-radius: 25px;
   padding: 1rem;
@@ -87,10 +91,26 @@ header {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  font-size: 1.7rem;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-weight: 600;
 }
 
 .movie-container .movie .movie--info span {
   color: white;
+  margin: 1rem;
+}
+
+.movie-container .movie .movie--info small {
+  margin: 1rem;
+  color: orange;
+  padding: 1rem;
+  background-color: #3842c2;
 }
 
 .movie-container .movie .movie--hidden {
