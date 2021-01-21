@@ -8,14 +8,13 @@ const apiURL = "https://api.lyrics.ovh";
 async function searchSongs(term) {
   const res = await fetch(`${apiURL}/suggest/${term}`);
   const data = await res.json();
-  
+
   console.log(data);
 }
 
 // Event listeners
 searchForm.addEventListener("submit", (e) => {
   e.preventDefault();
-<<<<<<< Updated upstream
   const searchTerm = searchInput.value.trim();
 
   if (!searchTerm) {
@@ -23,10 +22,6 @@ searchForm.addEventListener("submit", (e) => {
   } else {
     searchSongs(searchTerm);
   }
-=======
   const searchTerm = searchInput.value;
   console.log(searchTerm);
->>>>>>> Stashed changes
 });
-
-
