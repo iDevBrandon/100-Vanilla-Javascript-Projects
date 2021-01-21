@@ -41,6 +41,9 @@ body {
       -ms-flex-align: center;
           align-items: center;
   background-image: url("https://source.unsplash.com/random");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
 }
 
 .hero--search {
@@ -93,6 +96,11 @@ body {
   border-radius: 3rem;
   right: 11%;
   background-color: pink;
+}
+
+.hero--search--form button:active {
+  -webkit-transform: scale(0.95);
+          transform: scale(0.95);
 }
 
 .results {

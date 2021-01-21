@@ -25,6 +25,9 @@ body {
   justify-content: center;
   align-items: center;
   background-image: url("https://source.unsplash.com/random");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center; 
 
   &--search {
     display: flex;
@@ -51,6 +54,7 @@ body {
         border-radius: 3rem;
         padding: 1rem;
       }
+
       button {
         position: absolute;
         padding: 0.7rem;
@@ -58,9 +62,9 @@ body {
         right: 11%;
         background-color: pink;
 
-        // display: flex;
-        // justify-content: center;
-        // align-items: center;
+        &:active {
+          transform: scale(0.95);
+        }
       }
     }
   }
