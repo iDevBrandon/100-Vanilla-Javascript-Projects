@@ -15,6 +15,7 @@ async function searchSongs(term) {
 // Event listeners
 searchForm.addEventListener("submit", (e) => {
   e.preventDefault();
+<<<<<<< Updated upstream
   const searchTerm = searchInput.value.trim();
 
   if (!searchTerm) {
@@ -22,4 +23,10 @@ searchForm.addEventListener("submit", (e) => {
   } else {
     searchSongs(searchTerm);
   }
+=======
+  const searchTerm = searchInput.value;
+  console.log(searchTerm);
+>>>>>>> Stashed changes
 });
+
+
