@@ -1,56 +1,41 @@
-const slider = document.querySelector(".slider-container");
-const slides = Array.from(document.querySelectorAll(".slide"));
+const slider = document.querySelector(".slider");
+const slides = document.querySelectorAll(".slide");
+const nextBtn = document.querySelector(".slider__btn--right");
+const prevBtn = document.querySelector(".slider__btn--left");
 
-let isDragging = false;
-let startPos = 0;
-let currentTransalte = 0;
-let prevTranslate = 0;
-let animationID = 0;
-let currentIndex = 0;
+// slider.style.transform = "scale(0.5)";
+// slider.style.overflow = "visible";
 
-slides.forEach((slide, index) => {
-  const slideImage = slide.querySelector("img");
-  slideImage.addEventListener("dragstart", (e) => e.preventDefault());
+let curSlide = 0;
+const maxSlide = slides.length;
 
-  // Touch events
-  slide.addEventListener("touchstart", touchStart(index));
-  slide.addEventListener("touchend", touchEnd);
-  slide.addEventListener("touchmove", touchMove);
-
-  // Mouse events
-  slide.addEventListener("mousedown", touchStart(index));
-  slide.addEventListener("mouseup", touchEnd);
-  slide.addEventListener("mouseleave", touchEnd);
-  slide.addEventListener("mousemove", touchMove);
-});
-
-// Disable context menu
-window.oncontextmenu = function (event) {
-  event.preventDefault();
-  event.stopPropagation();
-  return false;
+const goToSlide = function (slide) {
+  slides.forEach(
+    (s, i) => (s.style.transform = `translateX(${(i - slide) * 100}%)`)
+  );
 };
 
-function touchStart(index) {
-  return function (event) {
-    currentIndex = index;
-    startPos = getPositionX(event)
-    isDragging = true;
+goToSlide(0);
 
-    
-  };
-}
-
-function touchEnd() {
-  isDragging = false;
-}
-
-function touchMove() {
-  if (isDragging) {
-    console.log("move");
+const nextSlide = function () {
+  if (curSlide === maxSlide - 1) {
+    curSlide = 0;
+  } else {
+    curSlide++;
   }
-}
 
-function getPositionX(event) {
-    return event.type.includes(';mouse')? event.pageX : event.touches[0].clientX
-} 
+  goToSlide(curSlide);
+};
+
+const prevSlide = function () {
+  if (curSlide === 0) {
+    curSlide = maxSlide - 1;
+  } else {
+    curSlide--;
+  }
+
+  goToSlide(curSlide);
+};
+
+nextBtn.addEventListener("click", nextSlide);
+prevBtn.addEventListener("click", prevSlide);
