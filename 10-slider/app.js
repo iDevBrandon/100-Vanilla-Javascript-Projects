@@ -15,6 +15,7 @@ const goToSlide = function (slide) {
   );
 };
 
+// initialize
 goToSlide(0);
 
 const nextSlide = function () {
