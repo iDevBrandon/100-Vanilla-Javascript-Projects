@@ -48,6 +48,22 @@ h3 {
   text-align: center;
 }
 
+.alert {
+  text-align: center;
+  margin-bottom: 2rem;
+  font-size: 0.7rem;
+
+  &-success {
+    color: #155724;
+    background: #d4edda;
+  }
+
+  &-danger {
+    color: #721c24;
+    background: #f8d7da;
+  }
+}
+
 .form-control {
   display: flex;
   justify-content: center;

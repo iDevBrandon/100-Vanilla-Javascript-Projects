@@ -1,5 +1,5 @@
 // SELECT ITEMS
-const alert = document.querySelector(".alert");
+let alert = document.querySelector(".alert");
 const form = document.querySelector(".grocery-form");
 const grocery = document.getElementById("grocery");
 const submitBtn = document.querySelector(".submit-btn");
@@ -19,7 +19,20 @@ form.addEventListener("submit", addItem);
 // **************** FUNCTIONS
 function addItem(e) {
   e.preventDefault();
-  console.log(grocery.value);
+  const value = grocery.value;
+  // create unique id with time
+  const id = new Date().getTime().toString();
+  // we add an item in the list
+  if (value && !editFlag) {
+    console.log("Add item to the list");
+    // we edit the item with value
+  } else if (value && editFlag) {
+    console.log("Editing...");
+    // its empty in the input
+  } else {
+    alert.textContent = "It's empty! ";
+    alert.classList.add("alert-danger");
+  }
 }
 
 // **************** LOCAL STORAGE
