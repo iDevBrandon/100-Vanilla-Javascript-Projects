@@ -140,10 +140,8 @@ function setBackToDefault() {
 function addToLocalStorage(id, value) {
   // console.log("added to local storage");
   const grocery = { id, value };
-  let items = localStorage.getItem("list")
-    ? JSON.stringify(localStorage.getItem("list"))
-    : [];
-  console.log(items); // null
+  let items = getLocalStorage();
+  // console.log(items);
   items.push(grocery);
 
   localStorage.setItem("list", JSON.stringify(items));
@@ -152,6 +150,12 @@ function addToLocalStorage(id, value) {
 function removeFromLocalStorage(id) {}
 
 function editlocalStorage(id, value) {}
+
+function getLocalStorage() {
+  return localStorage.getItem("list")
+    ? JSON.parse(localStorage.getItem("list"))
+    : [];
+}
 // **************** SETUP ITEMS
 
 // localStorage API
