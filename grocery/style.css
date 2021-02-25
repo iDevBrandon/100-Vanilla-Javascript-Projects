@@ -45,7 +45,7 @@ form {
           flex-direction: column;
 }
 
-@media screen and (min-width: 400px) {
+@media screen and (min-width: 500px) {
   .section {
     width: 40vw;
   }
