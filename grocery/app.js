@@ -30,9 +30,20 @@ function addItem(e) {
     console.log("Editing...");
     // its empty in the input
   } else {
-    alert.textContent = "It's empty! ";
-    alert.classList.add("alert-danger");
+    displayAlert("Please enter value", "danger");
   }
+}
+
+// display alert
+function displayAlert(text, action) {
+  alert.textContent = text;
+  alert.classList.add(`alert-${action}`);
+
+  // remove alert
+  setTimeout(function () {
+    alert.textContent = "";
+    alert.classList.remove(`alert-${action}`);
+  }, 2000);
 }
 
 // **************** LOCAL STORAGE
