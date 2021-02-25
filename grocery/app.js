@@ -61,7 +61,13 @@ function addItem(e) {
 
     // we edit the item with value
   } else if (value && editFlag) {
-    console.log("Editing...");
+    // console.log("Editing...");
+    editElement.innerHTML = value;
+    displayAlert("Value changed", "success");
+    // edit local storage
+    // editlocalStorage(editID, value);
+    setBackToDefault();
+
     // its empty in the input
   } else {
     displayAlert("Please enter value", "danger");
@@ -136,4 +142,6 @@ function addToLocalStorage(id, value) {
 }
 
 function removeFromLocalStorage(id) {}
+
+function editlocalStorage(id, value) {}
 // **************** SETUP ITEMS
