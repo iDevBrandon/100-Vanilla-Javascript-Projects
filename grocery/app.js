@@ -47,7 +47,10 @@ function addItem(e) {
     displayAlert("item added to the list", "success");
     // show container
     container.classList.add("show-container");
-    
+    // add to local storage
+    addToLocalStorage(id, value);
+    // set back to default
+    setBackToDefault();
 
     // we edit the item with value
   } else if (value && editFlag) {
@@ -70,6 +73,14 @@ function displayAlert(text, action) {
   }, 2000);
 }
 
+// set back to default
+function setBackToDefault() {
+  console.log("set back to default");
+}
+
 // **************** LOCAL STORAGE
+function addToLocalStorage(id, value) {
+  console.log("added to local storage");
+}
 
 // **************** SETUP ITEMS
