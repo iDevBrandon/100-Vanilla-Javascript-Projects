@@ -65,7 +65,7 @@ function addItem(e) {
     editElement.innerHTML = value;
     displayAlert("Value changed", "success");
     // edit local storage
-    // editlocalStorage(editID, value);
+    editlocalStorage(editID, value);
     setBackToDefault();
 
     // its empty in the input
@@ -158,7 +158,16 @@ function removeFromLocalStorage(id) {
   localStorage.setItem("list", JSON.stringify(items));
 }
 
-function editlocalStorage(id, value) {}
+function editlocalStorage(id, value) {
+  let items = getLocalStorage();
+  items = items.map(function (item) {
+    if (item.id === id) {
+      item.value = value;
+    }
+    return item;
+  });
+  localStorage.setItem("list", JSON.stringify(items));
+}
 
 function getLocalStorage() {
   return localStorage.getItem("list")
