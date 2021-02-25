@@ -99,7 +99,7 @@ function clearItems() {
 function editItem(e) {
   const element = e.currentTarget.parentElement.parentElement;
   // set edit item
-  editElement = e.currentTarget.parentElement.previousSibling; // <p title one >
+  editElement = e.currentTarget.parentElement.previousElementSibling; // <p title one >
   // set form value
   grocery.value = editElement.innerHTML;
   editFlag = true;
