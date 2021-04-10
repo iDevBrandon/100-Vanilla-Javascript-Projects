@@ -30,3 +30,6 @@ npm i parcel & format the API style
 
 
 283. Rendering the recipe 
+recipeContainer.insertAdjacentHTML('afterbegin', markup);
+add spinner and use map 
+add polyfill for es6 (async stuff with core-js & regenerator-runtime
