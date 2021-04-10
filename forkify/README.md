@@ -23,3 +23,10 @@ User searches -> Load search results(ASYNC) -> Render search results
 User clicks pagination 
 
 Page load with recipe ID -> Loade recipe -> Render recipe 
+
+
+282. Loading a Recipe from API
+npm i parcel & format the API style
+
+
+283. Rendering the recipe 
