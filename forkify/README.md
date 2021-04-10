@@ -33,3 +33,7 @@ npm i parcel & format the API style
 recipeContainer.insertAdjacentHTML('afterbegin', markup);
 add spinner and use map 
 add polyfill for es6 (async stuff with core-js & regenerator-runtime
+
+
+284. Listening for load and hashchange Events
+#hash in url, it does change  
