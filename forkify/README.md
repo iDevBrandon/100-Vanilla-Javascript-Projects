@@ -60,3 +60,7 @@ View : Presentation logic
 2. loadRecipe() in Model and renderSpinner() in View
 3. export loadRecipe() 
 4. recipe{} to render() which is UI
+
+
+286. Refactoring for MVC
+Create files for MVC
