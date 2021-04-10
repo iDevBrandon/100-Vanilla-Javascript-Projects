@@ -37,3 +37,26 @@ add polyfill for es6 (async stuff with core-js & regenerator-runtime
 
 284. Listening for load and hashchange Events
 #hash in url, it does change  
+
+285. The MVC Architecture 
+Structure: We organize our code
+Maintainability : To easily change it in the future 
+Expandability : To easily add new feature 
+
+Components of any architecture 
+Business Logic : Solve the actual business problem 
+State : stores all the data about the application
+HTTP libaray : Responsible for making and receiving AJAX request
+Appliction logic(Router) : implementaiton of application itself. Handles navigation and UI events
+Presentation (UI Layer) : All of visible part of application, esp display application state 
+
+
+Model : Business logic, state, HTTP library          
+Controller : Application logic like a bridge
+View : Presentation logic
+
+0. user clicks search result 
+1. controlRecipes()
+2. loadRecipe() in Model and renderSpinner() in View
+3. export loadRecipe() 
+4. recipe{} to render() which is UI
