@@ -47,7 +47,6 @@ export const loadSearchResults = async function (query) {
       };
     });
 
-    console.log(sate.search.results);
   } catch (err) {
     console.log(`${err}`);
     throw err;
