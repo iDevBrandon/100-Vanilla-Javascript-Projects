@@ -67,3 +67,17 @@ Create files for MVC
 
 
 287. Helpers and Configuration
+
+
+288. Event Handlers in MVC: Publisher-Subscriber Pattern
+Events should be handled in the controller
+Events should be listened for in the view 
+
+Module controller.js : (Subscriber) : code that want to react
+Class recipeview : (Publisher): Code that knows when to react
+
+solution : Subscribe to publisher by passing in the subscriber function
+=> controlRecipes will be passed into addHandlerRender when problem starts
+0. Problem starts
+1. init()
+2. addHandlerRender()
