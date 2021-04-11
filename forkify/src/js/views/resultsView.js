@@ -2,6 +2,8 @@ import View from './View.js';
 import icons from 'url:../../img/icons.svg';
 class ResultsView extends View {
   _parentElement = document.querySelector('.results');
+  _errorMessage = 'No recipes found for your query! Please try again!';
+  _message = '';
 
   _generateMarkup() {
     // console.log(this._data); _data is an object
@@ -17,8 +19,7 @@ class ResultsView extends View {
             </figure>
             <div class="preview__data">
                 <h4 class="preview__title">${result.title}</h4>
-                <p class="preview__publisher">${result.publisher}</p>
-                
+                <p class="preview__publisher">${result.publisher}</p> 
             </div>
             </a>
         </li>  
