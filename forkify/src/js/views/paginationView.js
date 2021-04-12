@@ -13,9 +13,20 @@ class PaginationView extends View {
     console.log(numPages);
 
     // Page 1 and there are other pages
-    // page 1, and there are NO other pages
+    if (this._data.page === 1 && numPages > 1) {
+      return 'page 1';
+    }
     // Last page
+    if (this._data.page === numPages && numPages > 1) {
+      return 'Last Page';
+    }
     // Other page
+    if (this._data.page < numPages) {
+      return 'other page';
+    }
+
+    // page 1, and there are NO other pages
+    return 'only 1 page';
   }
 }
 
