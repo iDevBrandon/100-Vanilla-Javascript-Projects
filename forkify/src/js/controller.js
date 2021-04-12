@@ -42,7 +42,7 @@ const controlSearchResults = async function () {
 
     // 3) Render results
     // resultsView.render(model.state.search.results); // its calling ALL
-    resultsView.render(model.getSearchResultsPage(6));
+    resultsView.render(model.getSearchResultsPage(3));
 
     // 4) Render initial pagination button
     paginationView.render(model.state.search);
@@ -51,8 +51,12 @@ const controlSearchResults = async function () {
   }
 };
 
-const controlPagination = function () {
-  console.log('Pag controller');
+const controlPagination = function (goToPage) {
+  // 1) Render NEW results
+  resultsView.render(model.getSearchResultsPage(goToPage));
+
+  // 2) Render NEW pagination button
+  paginationView.render(model.state.search);
 };
 
 const init = function () {
