@@ -81,3 +81,10 @@ solution : Subscribe to publisher by passing in the subscriber function
 0. Problem starts
 1. init()
 2. addHandlerRender()
+
+289. Implementing Error and Success Messages
+
+
+290. Implementing Search result - Part 1 
+User searches -> ASYNC load search results -> RenderSearch results
+
