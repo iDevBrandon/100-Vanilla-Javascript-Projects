@@ -3,17 +3,32 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="../dist/css/main.css" />
+    <link rel="stylesheet" href="./main.css" />
     <title>Countdown Timer</title>
   </head>
   <body>
-    <div class="timer">
-      <h1 class="timer--head">New Year Eve</h1>
-      <div class="time--format">
-        <h1>0</h1>
-        <small>Days</small>
+    <div class="container">
+      <h1 class="headTitle">Registration closing in</h1>
+
+      <div class="timer" id="timer">
+        <div class="timer__span">
+          <h2 id="days"></h2>
+          <span>Days</span>
+        </div>
+        <div class="timer__span">
+          <h2 id="hours"></h2>
+          <span>Hours</span>
+        </div>
+        <div class="timer__span">
+          <h2 id="minutes"></h2>
+          <span>Mintues</span>
+        </div>
+        <div class="timer__span">
+          <h2 id="seconds"></h2>
+          <span>Seconds</span>
+        </div>
       </div>
     </div>
-    <script src="app.js"></script>
+    <script src="./app.js"></script>
   </body>
 </html>

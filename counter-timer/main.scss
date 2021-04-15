@@ -19,3 +19,34 @@ body {
   background-size: cover;
   background-position: center center;
 }
+
+.container {
+  h1 {
+    margin-bottom: 1rem;
+    text-align: center;
+  }
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.timer {
+  width: 80vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  &__span {
+    margin: 0.2rem;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    width: 100px;
+    height: 100px;
+    background-color: #03102c;
+    color: white;
+    border-radius: 5px;
+  }
+}
