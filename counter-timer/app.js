@@ -1,4 +1,4 @@
-let countDownDate = new Date("2021-04-27 00:37:00").getTime();
+let countDownDate = new Date("2021-04-27 01:28:20").getTime();
 let day = document.querySelector("#days");
 let hour = document.querySelector("#hours");
 let min = document.querySelector("#minutes");
@@ -10,6 +10,10 @@ function init() {
   hour.textContent = 0;
   min.textContent = 0;
   sec.textContent = 0;
+}
+
+function formatNumber(time) {
+  return time < 10 ? `0${time}` : time;
 }
 
 let time = setInterval(function () {
@@ -24,9 +28,9 @@ let time = setInterval(function () {
   let seconds = Math.floor((diff % (1000 * 60)) / 1000);
 
   day.textContent = days;
-  hour.textContent = hours;
-  min.textContent = minutes;
-  sec.textContent = seconds;
+  hour.textContent = formatNumber(hours);
+  min.textContent = formatNumber(minutes);
+  sec.textContent = formatNumber(seconds);
 
   if (diff < 0) {
     clearInterval(time);
