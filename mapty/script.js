@@ -12,64 +12,87 @@ const inputCadence = document.querySelector(".form__input--cadence");
 const inputElevation = document.querySelector(".form__input--elevation");
 
 // create global variable to access map variable
-let map, mapEvent;
+// let map, mapEvent;
 
-if (navigator.geolocation)
-  navigator.geolocation.getCurrentPosition(
-    function (position) {
-      const { latitude } = position.coords;
-      const { longitude } = position.coords;
-      console.log(latitude, longitude);
+class App {
+  #map;
+  #mapEvent;
 
-      const coords = [latitude, longitude];
-      map = L.map("map").setView(coords, 13);
+  // constructor method called immd when a new object is created from this class
+  constructor() {
+    this._getPosition();
+    // seperate marker
+    form.addEventListener("submit", this._newWorkout.bind(this));
+    inputType.addEventListener("change", this._toggleElevationField);
+  }
 
-      L.tileLayer("https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png", {
-        attribution:
-          '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
-      }).addTo(map);
+  // this._bindMap treated is as a regular function call, not a method call.
+  // in a regular function call, this key is set to undefined (use bind)
+  _getPosition() {
+    if (navigator.geolocation)
+      navigator.geolocation.getCurrentPosition(
+        this._loadMap.bind(this),
+        function () {
+          alert("Could not get your location");
+        }
+      );
+  }
 
-      // Handling clicks on map
-      map.on("click", function (mapE) {
-        mapEvent = mapE; // copy global variable
-        form.classList.remove("hidden");
-        inputDistance.focus();
-      });
-    },
-    function () {
-      alert("Could not get your location");
-    }
-  );
+  _loadMap(position) {
+    const { latitude } = position.coords;
+    const { longitude } = position.coords;
+    console.log(latitude, longitude);
 
-// seperate marker
-form.addEventListener("submit", function (e) {
-  e.preventDefault();
+    console.log(this);
+    const coords = [latitude, longitude];
+    this.#map = L.map("map").setView(coords, 13);
 
-  // clear input fields
-  inputDistance.value = inputDuration.value = inputCadence.value = inputElevation.value =
-    "";
+    L.tileLayer("https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png", {
+      attribution:
+        '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+    }).addTo(this.#map);
 
-  // Display marker
-  console.log(mapEvent);
-  const { lat, lng } = mapEvent.latlng;
+    // Handling clicks on map
+    this.#map.on("click", this._showForm.bind(this));
+  }
 
-  L.marker([lat, lng])
-    .addTo(map)
-    .bindPopup(
-      L.popup({
-        maxWidth: 250,
-        minWidth: 100,
-        autoClose: false,
-        closeOnClick: false,
-        className: "running-popup",
-      })
-    )
-    .setPopupContent("workout")
-    .openPopup();
-});
+  _showForm(mapE) {
+    this.#mapEvent = mapE; // copy global variable
+    form.classList.remove("hidden");
+    inputDistance.focus();
+  }
 
-// Running or Cycling
-inputType.addEventListener("change", function () {
-  inputElevation.closest(".form__row").classList.toggle("form__row--hidden");
-  inputCadence.closest(".form__row").classList.toggle("form__row--hidden");
-});
+  _toggleElevationField() {
+    // Running or Cycling
+
+    inputElevation.closest(".form__row").classList.toggle("form__row--hidden");
+    inputCadence.closest(".form__row").classList.toggle("form__row--hidden");
+  }
+
+  _newWorkout(e) {
+    e.preventDefault();
+
+    // clear input fields
+    inputDistance.value = inputDuration.value = inputCadence.value = inputElevation.value =
+      "";
+
+    // Display marker
+    const { lat, lng } = this.#mapEvent.latlng;
+
+    L.marker([lat, lng])
+      .addTo(this.#map)
+      .bindPopup(
+        L.popup({
+          maxWidth: 250,
+          minWidth: 100,
+          autoClose: false,
+          closeOnClick: false,
+          className: "running-popup",
+        })
+      )
+      .setPopupContent("workout")
+      .openPopup();
+  }
+}
+
+const app = new App();
