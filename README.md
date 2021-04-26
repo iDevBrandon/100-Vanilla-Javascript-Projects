@@ -4,7 +4,7 @@ i needed 100 ideas as i got insipred by Brad new course
 https://50projects50days.com/
 i'd try to create it with my own code for fellow learners 
 
-1. Slider
+1. Slider (4/27/2021)
 
 
 Extra links i found
