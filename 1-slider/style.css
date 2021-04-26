@@ -1,0 +1,30 @@
+.slider__container {
+  width: 100%;
+  height: 80vh;
+  overflow: hidden;
+  margin: auto 0;
+  position: relative;
+}
+
+.slider {
+  margin-top: 3rem;
+  height: 100%;
+  margin: auto 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.slide {
+  background-repeat: no-repeat;
+  background-size: 100%;
+  width: 100%;
+  height: 100%;
+}
+
+.number {
+  position: absolute;
+  color: white;
+  font-size: 2rem;
+}
