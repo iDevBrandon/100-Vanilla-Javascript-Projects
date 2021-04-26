@@ -7,10 +7,15 @@
   height: 90vh;
   overflow: hidden;
   margin: 0 auto;
+  display: grid;
 }
 
 .slide {
   position: absolute;
+}
+
+img {
+  object-fit: cover;
 }
 
 .number {
