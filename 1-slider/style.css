@@ -1,0 +1,43 @@
+.slider__container {
+  margin-top: 2rem;
+}
+.slider {
+  position: relative;
+  width: 80vw;
+  height: 90vh;
+  overflow: hidden;
+  margin: 0 auto;
+  display: grid;
+}
+
+.slide {
+  position: absolute;
+}
+
+img {
+  object-fit: cover;
+}
+
+.number {
+  position: absolute;
+  color: white;
+  font-size: 2rem;
+}
+.arrow__container {
+  display: block;
+  justify-content: space-between;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  margin: auto 0;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+}
+
+.arrow {
+  color: white;
+  padding: 20px;
+  cursor: pointer;
+}
