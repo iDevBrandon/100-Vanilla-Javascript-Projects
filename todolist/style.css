@@ -63,6 +63,10 @@ form button:hover {
   background: white;
 }
 
+.todo-item {
+  padding: 0rem 0.5rem;
+}
+
 .todo li {
   flex: 1;
 }
