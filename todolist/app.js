@@ -36,5 +36,15 @@ const addTodo = (event) => {
   todoInput.value = "";
 };
 
+const deleteCheck = (e) => {
+  const item = e.target;
+  // Delete todo
+  if (item.classList[0] === "trash-btn") {
+    const todo = item.parentElement;
+    todo.remove();
+  }
+};
+
 // Event listeners
 todoButton.addEventListener("click", addTodo);
+todoList.addEventListener("click", deleteCheck);
