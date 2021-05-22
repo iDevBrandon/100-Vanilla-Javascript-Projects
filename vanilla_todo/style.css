@@ -110,6 +110,10 @@ h1 {
   width: 100%;
   margin: 1.5rem;
   list-style: none;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 
 .todo__list--body {
@@ -121,7 +125,7 @@ h1 {
 }
 
 .todo__list--item {
-  padding: 2rem;
+  padding: 1rem;
   width: 80%;
   display: -webkit-box;
   display: -ms-flexbox;
