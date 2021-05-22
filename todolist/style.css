@@ -100,3 +100,37 @@ form button:hover {
   transform: translateY(8rem) rotateZ(20deg);
   opacity: 0;
 }
+
+/* seletor styling */
+
+.select {
+  margin: 1rem;
+  position: relative;
+  overflow: hidden;
+}
+
+select {
+  appearance: none;
+  color: #ff6f47;
+  width: 10rem;
+  cursor: pointer;
+  padding: 1rem;
+  outline: none;
+  border: none;
+}
+
+.select::after {
+  content: "\25BC";
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: #fda085;
+  padding: 1rem;
+  pointer-events: none;
+  transition: all 0.3s ease;
+}
+
+.select:hover::after {
+  background: white;
+  color: #ff6f47;
+}
