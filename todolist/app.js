@@ -24,6 +24,8 @@ const addTodo = (event) => {
   completedButton.innerHTML = "<i class='fas fa-check'></i>";
   completedButton.classList.add("complete-btn");
   todoDiv.appendChild(completedButton);
+  // Add todo in LS
+  saveLocalTodos(todoInput.value);
 
   // CHECK DELETE MARK
   const trashButton = document.createElement("button");
@@ -82,6 +84,21 @@ const filterTodo = (e) => {
     }
   });
 };
+
+// deal with LocalStorage
+function saveLocalTodos(todo) {
+  // check if the data is already there or not
+  let todos;
+  if (localStorage.getItem("todos") === null) {
+    todos = [];
+  } else {
+    // means there are data
+    todos = JSON.parse(localStorage.getItem("todos"));
+  }
+  todos.push(todo);
+  // how to save todos in LS
+  localStorage.setItem("todos", JSON.stringify(todos));
+}
 
 // Event listeners
 todoButton.addEventListener("click", addTodo);
