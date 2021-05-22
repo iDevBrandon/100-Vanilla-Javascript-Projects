@@ -41,12 +41,13 @@ const addTodo = (event) => {
 
 const deleteCheck = (e) => {
   const item = e.target;
-  console.log(item);
+
   // Delete todo
   if (item.classList[0] === "trash-btn") {
     const todo = item.parentElement;
     // animation
     todo.classList.add("fall");
+    removeLocalTodos(todo);
     todo.addEventListener("transitionend", function () {
       todo.remove();
     });
@@ -131,6 +132,20 @@ function getTodos() {
     //attach final Todo
     todoList.appendChild(todoDiv);
   });
+}
+
+function removeLocalTodos(todo) {
+  // check if the data is already there or not
+  let todos;
+  if (localStorage.getItem("todos") === null) {
+    todos = [];
+  } else {
+    todos = JSON.parse(localStorage.getItem("todos"));
+  }
+
+  const todoIndex = todo.children[0].innerText;
+  todos.splice(todos.indexOf(todoIndex), 1);
+  localStorage.setItem("todos", JSON.stringify(todos));
 }
 
 // Event listeners
