@@ -5,34 +5,48 @@ const todoList = document.querySelector(".todo__list");
 const addTodo = (e) => {
   e.preventDefault();
   if (todoInput.value.length > 0) {
-    // each todo
-    const listItem = document.createElement("li");
-    listItem.classList.add("todo__list--item");
+    // prevent from submitting
+    event.preventDefault();
+    // create todo element
+    const todoDiv = document.createElement("div");
+    todoDiv.classList.add("todo");
 
-    const listBody = document.createElement("div");
-    listBody.classList.add("todo__list--body");
-    listBody.innerText = todoInput.value;
+    const newTodo = document.createElement("li");
+    newTodo.innerText = todoInput.value;
+    newTodo.classList.add("todo-item");
 
+    // add todo item into todoDiv
+    todoDiv.appendChild(newTodo);
+
+    // CHECK COMPLETE MARK
+    const completedButton = document.createElement("button");
+    completedButton.innerHTML = "<i class='fas fa-check'></i>";
+    completedButton.classList.add("complete-btn");
+    todoDiv.appendChild(completedButton);
+    // Add todo in LS
+ 
+    // CHECK DELETE MARK
+    const trashButton = document.createElement("button");
+    trashButton.innerHTML = "<i class='fas fa-trash'></i>";
+    trashButton.classList.add("trash-btn");
+    todoDiv.appendChild(trashButton);
+
+    todoList.appendChild(todoDiv);
+
+    // clear input value after adding
     todoInput.value = "";
-    listItem.appendChild(listBody);
-
-    // COMPLETE mark
-    const completeBtn = document.createElement("button");
-    completeBtn.classList.add("complete-btn");
-    completeBtn.innerHTML = '<i class="fas fa-check"></i>';
-    listItem.appendChild(completeBtn);
-
-    // DELETE mark
-    const deleteBtn = document.createElement("button");
-    deleteBtn.classList.add("trash-btn");
-    deleteBtn.innerHTML = '<i class="fas fa-trash"></i>';
-    listItem.appendChild(deleteBtn);
-
-    // insert todos into ul
-    todoList.appendChild(listItem);
   } else {
     alert("Type sth please");
   }
 };
 
+// delte todo
+const deleteTodo = (e) => {
+  const item = e.target.children[1];
+
+  const todo = item.parentElement;
+  console.log(todo.children);
+};
+
 todoAddBtn.addEventListener("click", addTodo);
+todoList.addEventListener("click", deleteTodo);

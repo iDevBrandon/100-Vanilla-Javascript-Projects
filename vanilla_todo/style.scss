@@ -86,7 +86,6 @@ h1 {
     padding: rem;
     width: 80%;
     display: flex;
-    width: 100%;
 
     .complete-btn,
     .trash-btn {
@@ -94,6 +93,7 @@ h1 {
       border: none;
       cursor: pointer;
       padding: 1rem;
+      pointer-events: none;
     }
 
     .complete-btn {

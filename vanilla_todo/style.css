@@ -125,12 +125,11 @@ h1 {
 }
 
 .todo__list--item {
-  padding: 1rem;
+  padding: rem;
   width: 80%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  width: 100%;
 }
 
 .todo__list--item .complete-btn,
@@ -139,6 +138,7 @@ h1 {
   border: none;
   cursor: pointer;
   padding: 1rem;
+  pointer-events: none;
 }
 
 .todo__list--item .complete-btn {
