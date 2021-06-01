@@ -1,4 +1,5 @@
 import icons from 'url:../../img/icons.svg';
+import { Fraction } from 'fractional';
 
 class RecipeView {
   #parentElement = document.querySelector('.recipe');
@@ -6,21 +7,22 @@ class RecipeView {
 
   render(data) {
     this.#data = data;
-    const markup = this.#generateMarkup;
+    const markup = this.#generateMarkup();
     this.#clear;
     this.#parentElement.insertAdjacentHTML('afterbegin', markup);
   }
 
   #clear() {
+    // make it clearn before making a markup
     this.#parentElement.innerHTML = '';
   }
 
-  // spinner function
+  // general function we can reuse
   renderSpinner = function () {
     const markup = `
       <div class="spinner">
         <svg>
-        <use href="${icons}#icon-loader"></use>
+          <use href="${icons}#icon-loader"></use>
         </svg>
       </div>
     `;
@@ -29,17 +31,15 @@ class RecipeView {
   };
 
   #generateMarkup() {
-    console.log(this.#data);
     return `
         <figure class="recipe__fig">
-        <img src=${this.#data.image} alt=${
+        <img src="${this.#data.image}" alt="${
       this.#data.title
-    } class="recipe__img" />
+    }" class="recipe__img" />
         <h1 class="recipe__title">
             <span>${this.#data.title}</span>
         </h1>
         </figure>
-
         <div class="recipe__details">
         <div class="recipe__info">
             <svg class="recipe__info-icon">
@@ -58,7 +58,6 @@ class RecipeView {
               this.#data.servings
             }</span>
             <span class="recipe__info-text">servings</span>
-
             <div class="recipe__info-buttons">
             <button class="btn--tiny btn--increase-servings">
                 <svg>
@@ -72,7 +71,6 @@ class RecipeView {
             </button>
             </div>
         </div>
-
         <div class="recipe__user-generated">
             <svg>
             <use href="${icons}#icon-user"></use>
@@ -84,31 +82,11 @@ class RecipeView {
             </svg>
         </button>
         </div>
-
         <div class="recipe__ingredients">
         <h2 class="heading--2">Recipe ingredients</h2>
         <ul class="recipe__ingredient-list">
-            ${this.#data.ingredients
-              .map(ing => {
-                return `
-                <li class="recipe__ingredient">
-                <svg class="recipe__icon">
-                    <use href="${icons}#icon-check"></use>
-                </svg>
-                <div class="recipe__quantity">${ing.quantity}</div>
-                <div class="recipe__description">
-                    <span class="recipe__unit">${ing.unit}</span>
-                    ${ing.description}
-                </div>
-                </li>
-            `;
-              })
-              .join('')}
-            
-    
-        </ul>
+        ${this.#data.ingredients.map(this.#generateMarkupIngredient).join('')}
         </div>
-
         <div class="recipe__directions">
         <h2 class="heading--2">How to cook it</h2>
         <p class="recipe__directions-text">
@@ -129,7 +107,24 @@ class RecipeView {
             </svg>
         </a>
         </div>
-    `;
+  `;
+  }
+
+  #generateMarkupIngredient(ing) {
+    return `
+        <li class="recipe__ingredient">
+            <svg class="recipe__icon">
+            <use href="${icons}#icon-check"></use>
+            </svg>
+            <div class="recipe__quantity">${
+              ing.quantity ? new Fraction(ing.quantity).toString() : ''
+            }</div>
+            <div class="recipe__description">
+            <span class="recipe__unit">${ing.unit}</span>
+            ${ing.description}
+            </div>
+        </li>
+        `;
   }
 }
 
