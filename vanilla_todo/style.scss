@@ -1,0 +1,107 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: white;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+h1 {
+  text-align: center;
+  margin: 3rem;
+}
+
+.todo__container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: #f9f9f9;
+  min-width: 30rem;
+}
+
+.todo__control {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+
+  &--form {
+    padding: 2rem;
+    outline: none;
+    display: flex;
+    justify-content: center;
+  }
+
+  &--input {
+    padding: 1rem;
+    border: 1px solid #ada9f0;
+  }
+
+  &--button {
+    padding: 1rem;
+    border: none;
+    cursor: pointer;
+    background-color: #8a82ef;
+    color: white;
+    transition: all 0.3s ease;
+  }
+
+  &--button:hover {
+    background-color: white;
+    color: #8a82ef;
+    border: 1px solid #ada9f0;
+  }
+
+  &--select {
+    padding: 1rem;
+    outline: none;
+    border: none;
+  }
+}
+
+.todo__list {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin: 1.5rem;
+  list-style: none;
+  flex-direction: column;
+
+  &--body {
+    padding: 1rem;
+    background: white;
+    flex: 1;
+  }
+
+  &--item {
+    padding: rem;
+    width: 80%;
+    display: flex;
+
+    .complete-btn,
+    .trash-btn {
+      color: white;
+      border: none;
+      cursor: pointer;
+      padding: 1rem;
+      pointer-events: none;
+    }
+
+    .complete-btn {
+      background: #8a82ef;
+    }
+
+    .trash-btn {
+      background: #4ac4a5;
+    }
+  }
+}
