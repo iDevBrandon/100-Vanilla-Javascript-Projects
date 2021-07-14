@@ -11,3 +11,10 @@
 - dbclick event
 - remove()
 - Clousure
+
+
+## 3 Done marketing 
+- text-decoration : line-through with flag 
+- JS classList 
+- HTML <input> checkbox
+- CSS :checked

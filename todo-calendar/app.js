@@ -18,24 +18,48 @@ function todoMain() {
   }
 
   function onChange() {
+    let flag = true;
+
     let inputValue = inputElem.value; // event.target
     inputElem.value = "";
 
     // ulElem.innerHTML += `<li>${inputValue}</li>`;
     const liElem = document.createElement("li");
+
+    let checkboxElem = document.createElement("input");
+    checkboxElem.type = "checkbox";
+    liElem.appendChild(checkboxElem);
+
+    let textElem = document.createElement("span");
+    textElem.innerText = inputValue;
+    liElem.appendChild(textElem);
+
     liElem.innerHTML = inputValue;
+    liElem.addEventListener("click", onClick, false);
 
     let spanElem = document.createElement("span");
     spanElem.innerText = "delete";
     spanElem.className = "material-icons";
 
-    liElem.addEventListener("click", deleteItem, false);
+    spanElem.addEventListener("click", deleteItem, false);
     liElem.appendChild(spanElem);
 
     ulElem.appendChild(liElem);
 
     function deleteItem() {
       liElem.remove();
+    }
+
+    function onClick() {
+      if (flag) {
+        // this.style.textDecoration = "line-through";
+        this.classList.add("strike");
+        flag = !flag;
+      } else {
+        // this.style.textDecoration = "none";
+        this.classList.remove("strike");
+        flag = !flag;
+      }
     }
   }
 }
