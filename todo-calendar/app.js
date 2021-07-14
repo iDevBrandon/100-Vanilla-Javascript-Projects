@@ -1,53 +1,90 @@
 todoMain();
 
 function todoMain() {
-  let inputElem, ulElem;
+  let inputElem, ulElem, categoryElem, button;
 
   getElements();
   addListeners();
 
   function getElements() {
     inputElem = document.getElementsByTagName("input")[0];
+    categoryElem = document.getElementsByTagName("input")[1];
+    button = document.getElementById("addBtn");
     ulElem = document.getElementsByTagName("ul")[0];
 
     console.log(inputElem);
   }
 
   function addListeners() {
-    inputElem.addEventListener("change", onChange, false);
+    button.addEventListener("click", addEntry, false);
   }
 
-  function onChange() {
+  function addEntry() {
     let flag = true;
 
     let inputValue = inputElem.value; // event.target
     inputElem.value = "";
 
-    // ulElem.innerHTML += `<li>${inputValue}</li>`;
-    const liElem = document.createElement("li");
+    let categoryValue = categoryElem.value;
+    categoryValue.value = "";
 
+    // Add a new row into table
+    let table = document.getElementById("todoTable");
+
+    let trElem = document.createElement("tr");
+    table.appendChild(trElem);
+
+    // chechbox cell
     let checkboxElem = document.createElement("input");
     checkboxElem.type = "checkbox";
-    liElem.appendChild(checkboxElem);
 
-    let textElem = document.createElement("span");
-    textElem.innerText = inputValue;
-    liElem.appendChild(textElem);
+    let tdElem1 = document.createElement("td");
+    tdElem1.appendChild(checkboxElem);
+    trElem.appendChild(tdElem1);
 
-    //liElem.innerText = inputValue;
-    //liElem.addEventListener("click", onClick, false);
+    // to-do cell
+    let tdElem2 = document.createElement("td");
+    tdElem2.innerText = inputValue;
+    trElem.appendChild(tdElem2);
 
+    // category cell
+    let tdElem3 = document.createElement("td");
+    tdElem3.innerText = categoryValue;
+    trElem.appendChild(tdElem3);
+    // delete cell
     let spanElem = document.createElement("span");
     spanElem.innerText = "delete";
     spanElem.className = "material-icons";
-
     spanElem.addEventListener("click", deleteItem, false);
-    liElem.appendChild(spanElem);
+    let tdElem4 = document.createElement("td");
+    tdElem4.appendChild(spanElem);
+    trElem.appendChild(tdElem4);
 
-    ulElem.appendChild(liElem);
+    // ulElem.innerHTML += `<li>${inputValue}</li>`;
+    // const liElem = document.createElement("li");
+
+    // let checkboxElem = document.createElement("input");
+    // checkboxElem.type = "checkbox";
+    // liElem.appendChild(checkboxElem);
+
+    // let textElem = document.createElement("span");
+    // textElem.innerText = inputValue + " - " + categoryValue;
+    // liElem.appendChild(textElem);
+
+    // //liElem.innerText = inputValue;
+    // //liElem.addEventListener("click", onClick, false);
+
+    // let spanElem = document.createElement("span");
+    // spanElem.innerText = "delete";
+    // spanElem.className = "material-icons";
+
+    // spanElem.addEventListener("click", deleteItem, false);
+    // liElem.appendChild(spanElem);
+
+    // ulElem.appendChild(liElem);
 
     function deleteItem() {
-      liElem.remove();
+      trElem.remove();
     }
 
     function onClick() {

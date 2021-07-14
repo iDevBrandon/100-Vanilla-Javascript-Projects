@@ -19,3 +19,8 @@
 - HTML <input> checkbox
 - CSS :checked
 
+## 4 Category
+- getElementById
+- new row in table
+- classList.toggle()
+- <datalist>
