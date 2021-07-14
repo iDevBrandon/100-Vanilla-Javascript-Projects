@@ -34,8 +34,8 @@ function todoMain() {
     textElem.innerText = inputValue;
     liElem.appendChild(textElem);
 
-    liElem.innerHTML = inputValue;
-    liElem.addEventListener("click", onClick, false);
+    //liElem.innerText = inputValue;
+    //liElem.addEventListener("click", onClick, false);
 
     let spanElem = document.createElement("span");
     spanElem.innerText = "delete";
