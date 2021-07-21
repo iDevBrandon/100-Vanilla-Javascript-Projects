@@ -12,6 +12,7 @@
 - remove()
 - Clousure
 
+<<<<<<< Updated upstream
 
 ## 3 Done marketing 
 - text-decoration : line-through with flag 
@@ -24,3 +25,9 @@
 - new row in table
 - classList.toggle()
 - <datalist>
+=======
+## 3 Done marking
+
+JS technique : flag
+JS classlist API
+>>>>>>> Stashed changes

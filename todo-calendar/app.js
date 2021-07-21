@@ -19,6 +19,7 @@ function todoMain() {
     button.addEventListener("click", addEntry, false);
   }
 
+<<<<<<< Updated upstream
   function addEntry() {
     let flag = true;
 
@@ -33,6 +34,17 @@ function todoMain() {
 
     let trElem = document.createElement("tr");
     table.appendChild(trElem);
+=======
+  function onChange() {
+    let flag = true;
+    let inputValue = inputElem.value; // event.target
+    inputElem.value = "";
+
+    // ulElem.innerHTML += `<li>${inputValue}</li>`;
+    const liElem = document.createElement("li");
+    liElem.innerHTML = inputValue;
+    liElem.addEventListener("click", onClick, false);
+>>>>>>> Stashed changes
 
     // chechbox cell
     let checkboxElem = document.createElement("input");
@@ -60,8 +72,13 @@ function todoMain() {
     tdElem4.appendChild(spanElem);
     trElem.appendChild(tdElem4);
 
+<<<<<<< Updated upstream
     // ulElem.innerHTML += `<li>${inputValue}</li>`;
     // const liElem = document.createElement("li");
+=======
+    spanElem.addEventListener("click", deleteItem, false);
+    liElem.appendChild(spanElem);
+>>>>>>> Stashed changes
 
     // let checkboxElem = document.createElement("input");
     // checkboxElem.type = "checkbox";
@@ -85,6 +102,18 @@ function todoMain() {
 
     function deleteItem() {
       trElem.remove();
+    }
+
+    function onClick() {
+      if (flag) {
+        // this.style.textDecoration = "line-through";
+        this.classList.add("strike");
+        flag = !flag;
+      } else {
+        // this.style.textDecoration = "none";
+        this.classList.remove("strike");
+        flag = !flag;
+      }
     }
 
     function onClick() {
