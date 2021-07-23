@@ -14,10 +14,10 @@ function todoMain() {
   }
 
   function addListeners() {
-    button.addEventListener("click", onChange);
+    button.addEventListener("click", addEntry);
   }
 
-  function onChange(event) {
+  function addEntry(event) {
     let flag = true;
 
     let inputValue = inputElem.value;
@@ -26,26 +26,37 @@ function todoMain() {
     let inputValue2 = inputElem2.value;
     inputElem2.value = "";
 
-    let liElem = document.createElement("li");
+    // Working with the table
+    let table = document.getElementById("todoTable");
 
-    let checkboxElem = document.createElement("input");
+    // add a new row
+    let trElem = document.createElement("tr");
+    table.appendChild(trElem);
+
+    // checkbox cell
+    let checkboxElem = document.createElement("td");
     checkboxElem.type = "checkbox";
-    liElem.appendChild(checkboxElem);
 
-    let textElem = document.createElement("span");
-    textElem.innerHTML = inputValue + " - " + inputValue2;
-    liElem.appendChild(textElem);
+    let tdElem1 = document.createElement("td");
+    tdElem1.appendChild(checkboxElem);
+    trElem.appendChild(tdElem1);
 
+    // todo cell
+    let tdElem2 = document.createElement("td");
+    tdElem2.innerText = inputValue;
+    trElem.appendChild(tdElem2);
+    // category cell
+    let tdElem3 = document.createElement("td");
+    tdElem3.innerText = inputValue2;
+    trElem.appendChild(tdElem3);
+    // delete cell
     let spanElem = document.createElement("span");
     spanElem.innerText = "delete";
     spanElem.className = "material-icons";
 
-    spanElem.addEventListener("click", deleteItem);
-
-    liElem.appendChild(spanElem);
-
-    ulElem.appendChild(liElem);
-
+    let tdElem4 = document.createElement("td");
+    tdElem4.appendChild(spanElem);
+    trElem.appendChild(tdElem4);
     function deleteItem() {
       liElem.remove();
     }

@@ -22,6 +22,6 @@
 ## 4 Category
 
 - getElementById
-- new row in table
+- new row in table - defo should use appendChild, not innerHTML
 - classList.toggle()
 - < datalist>
