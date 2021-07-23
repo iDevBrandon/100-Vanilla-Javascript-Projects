@@ -36,7 +36,7 @@ function todoMain() {
     // checkbox cell
     let checkboxElem = document.createElement("td");
     checkboxElem.type = "checkbox";
-
+    checkboxElem.addEventListener("click", done);
     let tdElem1 = document.createElement("td");
     tdElem1.appendChild(checkboxElem);
     trElem.appendChild(tdElem1);
@@ -45,32 +45,32 @@ function todoMain() {
     let tdElem2 = document.createElement("td");
     tdElem2.innerText = inputValue;
     trElem.appendChild(tdElem2);
+
     // category cell
     let tdElem3 = document.createElement("td");
     tdElem3.innerText = inputValue2;
     trElem.appendChild(tdElem3);
+
     // delete cell
     let spanElem = document.createElement("span");
     spanElem.innerText = "delete";
     spanElem.className = "material-icons";
+    spanElem.addEventListener("click", deleteItem);
 
     let tdElem4 = document.createElement("td");
     tdElem4.appendChild(spanElem);
     trElem.appendChild(tdElem4);
+
     function deleteItem() {
-      liElem.remove();
+      trElem.remove();
     }
 
-    function onClick() {
+    function done() {
       if (flag) {
-        this.classList.add("strike");
-        flag = !flag;
-      } else {
-        this.classList.remove("strike");
+        trElem.classList.toggle("strike");
+        console.log(this);
         flag = !flag;
       }
     }
   }
-
-  function onClick() {}
 }

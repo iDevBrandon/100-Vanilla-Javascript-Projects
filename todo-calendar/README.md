@@ -24,4 +24,4 @@
 - getElementById
 - new row in table - defo should use appendChild, not innerHTML
 - classList.toggle()
-- < datalist>
+- < datalist> - use datalist and inside options and then let the compoennt knows with list='sth'

@@ -1,4 +1,4 @@
-input:checked + span {
+.strike {
   text-decoration: line-through;
 }
 
