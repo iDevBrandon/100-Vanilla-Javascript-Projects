@@ -69,7 +69,6 @@ function todoMain() {
     function done() {
       if (flag) {
         trElem.classList.toggle("strike");
-        console.log(this);
         flag = !flag;
       }
     }
@@ -79,8 +78,7 @@ function todoMain() {
     let rows = document.getElementsByTagName("tr");
 
     for (let i = 1; i < rows.length; i++) {
-      let category = rows[i].getElementsByTagName("td")[2].innerText;
-
+      let category = rows[i].getElementsByTagName("td")[3].innerText;
       if (category == selectElem.value) {
         rows[i].style.display = "";
       } else {
