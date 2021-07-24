@@ -1,7 +1,7 @@
 todoMain();
 
 function todoMain() {
-  let inputElem, inputElem2, ulElem, button;
+  let inputElem, inputElem2, selectElem, button;
 
   getElements();
   addListeners();
@@ -10,11 +10,12 @@ function todoMain() {
     inputElem = document.getElementsByTagName("input")[0];
     inputElem2 = document.getElementsByTagName("input")[1];
     button = document.getElementById("addBtn");
-    ulElem = document.getElementsByTagName("ul")[0];
+    selectElem = document.getElementById("categoryFilter");
   }
 
   function addListeners() {
     button.addEventListener("click", addEntry);
+    selectElem.addEventListener("change", filterEntries);
   }
 
   function addEntry(event) {
@@ -70,6 +71,20 @@ function todoMain() {
         trElem.classList.toggle("strike");
         console.log(this);
         flag = !flag;
+      }
+    }
+  }
+
+  function filterEntries() {
+    let rows = document.getElementsByTagName("tr");
+
+    for (let i = 1; i < rows.length; i++) {
+      let category = rows[i].getElementsByTagName("td")[2].innerText;
+
+      if (category == selectElem.value) {
+        rows[i].style.display = "";
+      } else {
+        rows[i].style.display = "none";
       }
     }
   }
