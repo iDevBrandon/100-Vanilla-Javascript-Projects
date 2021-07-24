@@ -35,7 +35,7 @@ function todoMain() {
     table.appendChild(trElem);
 
     // checkbox cell
-    let checkboxElem = document.createElement("td");
+    let checkboxElem = document.createElement("input");
     checkboxElem.type = "checkbox";
     checkboxElem.addEventListener("click", done);
     let tdElem1 = document.createElement("td");
@@ -88,7 +88,7 @@ function todoMain() {
         if (index === 0) {
           return;
         }
-        let category = row.getElementsByTagName("td")[3].innerText;
+        let category = row.getElementsByTagName("td")[2].innerText;
 
         if (category === selectElem.value) {
           row.style.display = "";
