@@ -29,3 +29,11 @@
 |< select>                 |< datalist >        |           |
 |==========================|====================|===========|
 |Restricting select options| Allowing new values|           |
+
+
+## 6 Auto-update options
+- Array push()
+- Array includes()
+- new Set()
+- for of loop
+- const

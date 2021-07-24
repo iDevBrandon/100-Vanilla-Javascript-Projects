@@ -1,6 +1,7 @@
 todoMain();
 
 function todoMain() {
+  const DEFAULT_OPTION = "ALL";
   let inputElem, inputElem2, selectElem, button;
 
   getElements();
@@ -62,8 +63,11 @@ function todoMain() {
     tdElem4.appendChild(spanElem);
     trElem.appendChild(tdElem4);
 
+    updateSelectOptions();
+
     function deleteItem() {
       trElem.remove();
+      updateSelectOptions();
     }
 
     function done() {
@@ -78,7 +82,7 @@ function todoMain() {
     let rows = document.getElementsByTagName("tr");
     let selection = selectElem.value;
 
-    if (selection === "") {
+    if (selection === DEFAULT_OPTION) {
       Array.from(rows).forEach((row, index) => {
         row.style.display = "";
       });
@@ -106,5 +110,45 @@ function todoMain() {
     //     rows[i].style.display = "none";
     //   }
     // }
+  }
+
+  function updateSelectOptions() {
+    let options = [];
+
+    let rows = document.getElementsByTagName("tr");
+
+    Array.from(rows).forEach((row, index) => {
+      if (index === 0) return;
+
+      let category = row.getElementsByTagName("td")[2].innerText;
+
+      // check the category is same or not
+      // method 1
+      // if (!options.includes(category)) {
+      //   options.push(category);
+      // }
+
+      options.push(category);
+    });
+
+    let optionsSet = new Set(options); // Set does not allow duplicate values
+
+    // empty the select element before adding options
+    selectElem.innerHTML = "";
+
+    let newOptionElem = document.createElement("option");
+    newOptionElem.innerText = DEFAULT_OPTION;
+    newOptionElem.value = DEFAULT_OPTION;
+    selectElem.appendChild(newOptionElem);
+
+    // options.forEach((option) => {
+    for (let option of optionsSet) {
+      // add option
+      let newOptionElem = document.createElement("option");
+      newOptionElem.innerText = option;
+      newOptionElem.value = option;
+      selectElem.appendChild(newOptionElem);
+    }
+    // });
   }
 }
