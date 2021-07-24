@@ -76,14 +76,35 @@ function todoMain() {
 
   function filterEntries() {
     let rows = document.getElementsByTagName("tr");
+    let selection = selectElem.value;
 
-    for (let i = 1; i < rows.length; i++) {
-      let category = rows[i].getElementsByTagName("td")[3].innerText;
-      if (category == selectElem.value) {
-        rows[i].style.display = "";
-      } else {
-        rows[i].style.display = "none";
-      }
+    if (selection === "") {
+      Array.from(rows).forEach((row, index) => {
+        row.style.display = "";
+      });
+    } else {
+      // convert HTMLCollection to Array
+      Array.from(rows).forEach((row, index) => {
+        if (index === 0) {
+          return;
+        }
+        let category = row.getElementsByTagName("td")[3].innerText;
+
+        if (category === selectElem.value) {
+          row.style.display = "";
+        } else {
+          row.style.display = "none";
+        }
+      });
     }
+
+    // for (let i = 1; i < rows.length; i++) {
+    //   let category = rows[i].getElementsByTagName("td")[3].innerText;
+    //    if (category === selectElem.value) {
+    //     rows[i].style.display = "";
+    //   } else {
+    //     rows[i].style.display = "none";
+    //   }
+    // }
   }
 }
