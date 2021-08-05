@@ -19,4 +19,5 @@ https://jsbeginners.com/javascript-projects-for-beginners/
 https://dev.to/binconsole/curated-list-of-project-based-tutorials-project-based-learning-frontend-3c8l
 
 
+WesBos series
 [JS Drump kit]()
