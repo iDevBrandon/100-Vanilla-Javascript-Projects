@@ -2,10 +2,7 @@ function playSong(e) {
   const strKey = e.key;
   const keyNum = strKey.charCodeAt();
   const audio = document.querySelector(`audio[data-key="${keyNum}"]`);
-  if (!audio) {
-    return;
-  }
-
+  if (!audio) return;
   audio.play();
 
   // rewind the audio play

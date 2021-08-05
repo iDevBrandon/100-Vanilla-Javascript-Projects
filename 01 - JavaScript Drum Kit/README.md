@@ -12,3 +12,5 @@ keyCode is deprecated in today's time so use.
 
 `KeyboardEvent: key='${event.key}' | code='${event.code}'`;
 <https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/code>
+
+Create 2 functions : playSong & endEvent
