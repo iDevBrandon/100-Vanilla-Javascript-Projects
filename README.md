@@ -5,7 +5,7 @@ https://50projects50days.com/
 i'd try to create it with my own code for fellow learners 
 
 1. Slider (4/27/2021)
--
+
 
 
 Extra links i found
@@ -17,3 +17,6 @@ https://dev.to/simonholdorf/9-awesome-projects-you-can-build-with-vanilla-javasc
 https://www.youtube.com/watch?v=XH7ha_MNnXc&list=PLillGF-RfqbbnEGy3ROiLWk7JMCuSyQtX&index=36&frags=pl%2Cwn
 https://jsbeginners.com/javascript-projects-for-beginners/
 https://dev.to/binconsole/curated-list-of-project-based-tutorials-project-based-learning-frontend-3c8l
+
+
+[JS Drump kit]()
