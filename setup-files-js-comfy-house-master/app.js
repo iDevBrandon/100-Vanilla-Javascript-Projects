@@ -61,7 +61,13 @@ class UI {
 }
 
 // local storage
-class Storage {}
+class Storage {
+  // static allows us to call the method without creating an instance of the class
+  // static method is called on the class itself
+  static saveProducts(products) {
+    localStorage.setItem("products", JSON.stringify(products));
+  }
+}
 
 // Events
 document.addEventListener("DOMContentLoaded", () => {
@@ -69,5 +75,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const products = new Products();
 
   // get all products
-  products.getProducts().then((products) => ui.displayProducts(products));
+  products.getProducts().then((products) => {
+    ui.displayProducts(products);
+    Storage.saveProducts(products);
+  });
 });
