@@ -13,30 +13,38 @@ export const getDividendYiled = async (symbol) => {
 // 1. CSS Selector
 const cheerio = require("cheerio");
 const express = require("express");
-const { default: axios } = require("axios");
+const cheerioTableparser = require("cheerio-tableparser");
+const axios = require("axios");
 const port = process.env.PORT || 3000;
 
 const app = express();
+
+scrapingResult = {
+  type: "",
+  cash_amount: "",
+  date: "",
+};
 
 const getDividend = () => {
   return axios
     .get(`https://www.nasdaq.com/market-activity/stocks/msft/dividend-history`)
     .then((response) => {
       const html = response.data;
+      const $ = cheerio.load(html);
       const dividends = [];
 
-      const symbolHeading = ($ = cheerio.load(html));
-      $("table")
-        .find("tbody tr th:nth-child(2)")
-        .each(() => {
-          $("td")
-            .find("table")
-            .each(() => {
-              console.log($(this).text());
-            });
-        });
+      const bodyList = $(".dividend-history__table tbody tr").map(function (
+        i,
+        element
+      ) {
+        scrapingResult["date"] = $(this).find("th:nth-child(0)").text();
+        scrapingResult["type"] = $(this).find("td:nth-child(2)").text();
+        scrapingResult["cash_amount"] = String(
+          $(this).find("td:nth-child(3)").text()
+        );
 
-      console.log(symbolHeading.text());
+        console.log(scrapingResult);
+      });
     });
 };
 

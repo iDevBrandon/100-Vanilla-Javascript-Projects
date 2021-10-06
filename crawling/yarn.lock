@@ -108,6 +108,11 @@ cheerio-select@^1.5.0:
     domhandler "^4.2.0"
     domutils "^2.7.0"
 
+cheerio-tableparser@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/cheerio-tableparser/-/cheerio-tableparser-1.0.1.tgz#e55ad2dcb5361b8c323a6cbb8c0cd46e3cbdf1cd"
+  integrity sha1-5VrS3LU2G4wyOmy7jAzUbjy98c0=
+
 cheerio@^1.0.0-rc.10:
   version "1.0.0-rc.10"
   resolved "https://registry.yarnpkg.com/cheerio/-/cheerio-1.0.0-rc.10.tgz#2ba3dcdfcc26e7956fc1f440e61d51c643379f3e"
