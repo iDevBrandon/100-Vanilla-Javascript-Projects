@@ -31,17 +31,20 @@ const getDividend = () => {
     .then((response) => {
       const html = response.data;
       const $ = cheerio.load(html);
-      const dividends = [];
 
       const bodyList = $(".dividend-history__table tbody tr").map(function (
         i,
         element
       ) {
-        scrapingResult["date"] = $(this).find("th:nth-child(0)").text();
-        scrapingResult["type"] = $(this).find("td:nth-child(2)").text();
-        scrapingResult["cash_amount"] = String(
-          $(this).find("td:nth-child(3)").text()
+        scrapingResult["date"] = String(
+          $(element).find("td:nth-of-type(0)").text()
         );
+        scrapingResult["type"] = String(
+          $(element).find("td:nth-of-type(1)").text()
+        );
+        scrapingResult["cash_amount"] = $(element)
+          .find("td:nth-of-type(2)")
+          .text();
 
         console.log(scrapingResult);
       });
